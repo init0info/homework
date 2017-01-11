@@ -42,6 +42,7 @@ Code test homework.  Setup a Jenkins server, form a build pipeline for a 'hello 
 # To Do:
 
 1. use chef to
+   * fully configure the jenkins server from xml
    * set hostnames
    * update or upgrade (yum update && yum upgrade)
    * add net-tools to both boxes

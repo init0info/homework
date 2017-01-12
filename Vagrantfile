@@ -43,6 +43,8 @@ Vagrant.configure("2") do |config|
 
     web.vm.provision "shell", inline: "echo web > /etc/hostname"
 
+    web.vm.synced_folder ".", "/vagrant", type: "nfs"
+
     web.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
       chef.node_name = "web_1"

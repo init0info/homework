@@ -10,7 +10,8 @@ This cookbook is concerned with the "MySQL Community Server", particularly those
 
 ## Requirements
 
-- Chef 12.5 or higher
+- Chef 11 or higher
+- Ruby 1.9 or higher (preferably from the Chef full-stack installer)
 - Network accessible package repositories
 - 'recipe[selinux::disabled]' on RHEL platforms
 
@@ -24,13 +25,11 @@ The following platforms have been tested with Test Kitchen:
 |----------------+-----+-----+-----+-----+-----|
 | debian-7       |     |     | X   |     |     |
 |----------------+-----+-----+-----+-----+-----|
-| debian-8       |     |     | X   |     |     |
-|----------------+-----+-----+-----+-----+-----|
 | ubuntu-12.04   |     |     | X   |     |     |
 |----------------+-----+-----+-----+-----+-----|
 | ubuntu-14.04   |     |     | X   | X   |     |
 |----------------+-----+-----+-----+-----+-----|
-| ubuntu-16.04   |     |     |     |     | X   |
+| ubuntu-15.04   |     |     |     | X   |     |
 |----------------+-----+-----+-----+-----+-----|
 | centos-5       |   X | X   | X   | X   | X   |
 |----------------+-----+-----+-----+-----+-----|
@@ -38,27 +37,25 @@ The following platforms have been tested with Test Kitchen:
 |----------------+-----+-----+-----+-----+-----|
 | centos-7       |     |     | X   | X   | X   |
 |----------------+-----+-----+-----+-----+-----|
-| fedora         |     |     |     | X   | X   |
+| amazon         |     |     | X   | X   | X   |
 |----------------+-----+-----+-----+-----+-----|
-| openSUSE 13.2  |     |     |     | X   |     |
+| fedora-22      |     |     | X   | X   | X   |
 |----------------+-----+-----+-----+-----+-----|
-| openSUSE 42.1  |     |     |     | X   |     |
+| fedora-23      |     |     | X   | X   | X   |
 |----------------+-----+-----+-----+-----+-----|
 ```
 
 ## Cookbook Dependencies
 
-There are no hard coupled dependencies.
-However, there is a loose dependency on `yum-mysql-community` for RHEL/Centos platforms.
-As of the 8.0 version of this cookbook, configuration of the package repos is now the
-responsibility of the user.
+- yum-mysql-community
+- smf
 
 ## Usage
 
 Place a dependency on the mysql cookbook in your cookbook's metadata.rb
 
 ```ruby
-depends 'mysql', '~> 8.0'
+depends 'mysql', '~> 6.0'
 ```
 
 Then, in a recipe:
@@ -183,7 +180,7 @@ Please note that when using `notifies` or `subscribes`, the resource to referenc
 - `:create` - Configures everything but the underlying operating system service.
 - `:delete` - Removes everything but the package and data_dir.
 - `:start` - Starts the underlying operating system service
-- `:stop`- Stops the underlying operating system service
+- `:stop`-  Stops the underlying operating system service
 - `:restart` - Restarts the underlying operating system service
 - `:reload` - Reloads the underlying operating system service
 
@@ -277,7 +274,7 @@ mysql_client 'default' do
 end
 ```
 
-#### Properties
+#### Parameters
 
 - `package_name` - An array of packages to be installed. Defaults to a value looked up in an internal map.
 - `package_version` - Specific versions of the package to install, passed onto the underlying package manager. Defaults to `nil`.
@@ -425,7 +422,7 @@ Please refer to the HACKING.md
 - Author:: Jesse Howarth ([him@jessehowarth.com](mailto:him@jessehowarth.com))
 - Author:: Andrew Crump ([andrew@kotirisoftware.com](mailto:andrew@kotirisoftware.com))
 - Author:: Christoph Hartmann ([chris@lollyrock.com](mailto:chris@lollyrock.com))
-- Author:: Sean OMeara ([sean@sean.io](mailto:sean@sean.io))
+- Author:: Sean OMeara ([sean@chef.io](mailto:sean@chef.io))
 
 ```text
 Copyright:: 2009-2014 Chef Software, Inc

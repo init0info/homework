@@ -2,77 +2,6 @@
 
 This file is used to list changes made in each version of the mysql cookbook.
 
-## 8.2.0 (2016-12-03)
-
-- Include client development packages on RHEL/SUSE platforms
-
-## 8.1.1 (2016-10-31)
-- Fixing CVE-2016-6662 - Reverting execure bit on mysql config
-
-## 8.1.0 (2016-10-29)
-
-- Drop hardcoded, specific package version logic that broke many users
-
-## 8.0.4 (2016-09-26)
-- Bump debian version
-- Updated packages for 12.04 and 14.04 too
-- Add chef_version metadata
-- Update platforms in the kitchen file
-- Add selinux to the Berksfile for testing
-- Make sure yum repos are setup in local Test Kitchen
-
-## 8.0.3 (2016-09-14)
-- [GH-390] Fix #390 incorrect escaping of initial_root_password
-- Updated package versions for Ubuntu 16.04
-- Testing updates
-
-# v8.0.2 (2016-08-25)
-- Various bug fixed and updates to package version strings
-
-# v8.0.1 (2016-07-20)
-- Fixed a regression in the mysql_client resource where the action was changed from create to install in the 8.0 release
-- Added oracle, opensuse, and opensuseleap as supported platforms in the metadata
-
-# v8.0.0 (2016-07-11)
-
-- Converting from LWRP to custom resources
-- Removing yum-mysql and other dependencies.
-- ^ BREAKING CHANGE: RHELish users are now responsible
-  for including a recipe from the "yum-mysql" or equivalent
-  cookbook before utilizing the mysql_* resources.
-- More thoughtful ChefSpec
-- Renaming "replication" test suite to "smoke"
-- Moving to Inspec
-
-## v7.2.0 (2016-06-30)
-
-- Support openeSUSE leap
-- Support Fedora 24
-
-## v7.1.2 (2016-06-30)
-
-- Avoid deprecation warnings on the upcoming Chef 12.12 release
-
-## v7.1.1 (2016-06-03)
-
-- Fix apparmor blocking writes to non-default tmp_dirs
-- Updated apparmor config to allow read & write to sock.lock file
-- Use cookstyle instead of Rubocop directly
-
-## v7.1.0 (2016-05-11)
-
-- Added support for Ubuntu 16.04
-
-## v7.0.0 (2016-04-19)
-
-- Removed support for legacy distros: Ubuntu 10.04/13.04/14.10/15.04, Fedora 20/21, OmniOS r151006, opensuse 11.3/12.0
-- Added support for Fedora 23, suse 13.X, and Ubuntu 16.04
-- Updated the systemd support to create unit files in /etc/systemd and not /usr/lib/systemd
-- Adding umask to bash resource that sets root password PR #386 @gziskind
-- Cleaned up the Test Kitchen config to test the right platform version + mysql pairings
-- Added Travis CI Test Kitchen testing on Fedora 22/23 and removed Fedora 21
-- Updated the platforms used in the specs
-
 ## v6.1.3 (2016-03-14)
 
 - Added support for Ubuntu 15.10
@@ -136,7 +65,7 @@ This file is used to list changes made in each version of the mysql cookbook.
 
 ## v6.0.21 (2015-04-08)
 
-- Fix to Upstart prestart script when using custom socket
+- Fix to Upstart prestart script  when using custom socket
 - Adding --explicit_defaults_for_timestamp mysql_install_db_cmd for
 - 5.6 and above
 
@@ -257,7 +186,7 @@ This file is used to list changes made in each version of the mysql cookbook.
 
 ## v5.5.4 (2014-10-07)
 
-- Adding sensitive flag to execute resources to protect passwords from logs
+- Adding sensitive flag to execute resources to protect passwords from logs  
 
 ## v5.5.3 (2014-09-24)
 

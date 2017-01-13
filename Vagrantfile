@@ -23,6 +23,8 @@ Vagrant.configure("2") do |config|
 
     jenkins.vm.provision "shell", inline: "echo jenkins > /etc/hostname"
 
+    jenkins.vm.synced_folder ".", "/vagrant", type: "nfs"
+
     jenkins.vm.provision "chef_solo" do |chef|
       chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
       chef.node_name = "jenkins_master"

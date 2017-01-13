@@ -16,7 +16,7 @@ Code test homework.  Setup a Jenkins server, form a build pipeline for a 'hello 
 1. `vagrant init centos/7` _this pulls the Centos 7 box from the Atlas box repo_
 2. `vagrant up`
 3. Jenkins server becomes available at http://192.168.33.9:8080/
-4. Web content server becomes available at http://192.168.33.9:3000/
+4. Web content server becomes available at http://192.168.33.9:80/
 
 # Setup details
 
@@ -43,6 +43,7 @@ Code test homework.  Setup a Jenkins server, form a build pipeline for a 'hello 
 
 1. use chef to
    * install git on jenkins server
+   * install wget on web server
    * fully configure the jenkins server from xml
    * set hostnames
    * update or upgrade (yum update && yum upgrade)
